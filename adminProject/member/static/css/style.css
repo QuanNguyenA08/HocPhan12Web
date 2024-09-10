@@ -35,17 +35,17 @@ h1 {
 .form-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px; /* Reduced margin to bring elements closer */
+    margin-bottom: 10px;
 }
 
 .form-row label {
     width: 48%;
     font-weight: bold;
     color: #495057;
-    margin-bottom: 5px; /* Reduced margin to bring label closer to input */
+    margin-bottom: 5px;
 }
 
-.form-row input {
+.form-input, .form-select {
     width: 48%;
     padding: 10px;
     border: 1px solid #ced4da;
@@ -55,7 +55,7 @@ h1 {
     outline: none;
 }
 
-.form-row input:focus {
+.form-input:focus, .form-select:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
 }
