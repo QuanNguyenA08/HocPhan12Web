@@ -13,62 +13,71 @@ body {
     width: 80%;
     max-width: 1200px;
     background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
 }
 
 h1 {
     text-align: center;
     color: #343a40;
+    margin-bottom: 30px;
+    font-size: 28px;
 }
 
 .form-container, .grid-container {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .form-container h2, .grid-container h2 {
     color: #007bff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 22px;
 }
 
 .form-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px; /* Reduced margin to bring elements closer */
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px; /* Ensure there is spacing between labels and inputs */
 }
 
 .form-row label {
-    width: 48%;
+    width: 25%; /* Make labels and inputs occupy half of the row */
     font-weight: bold;
     color: #495057;
-    margin-bottom: 5px; /* Reduced margin to bring label closer to input */
+    text-align: right; /* Align labels to the right for better readability */
+    margin-right: 10px;
 }
 
-.form-row input {
-    width: 48%;
-    padding: 10px;
+.form-row input,
+.form-row select {
+    width: 70%;
+    padding: 8px;
     border: 1px solid #ced4da;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box;
     outline: none;
+    transition: border-color 0.3s;
 }
 
-.form-row input:focus {
+.form-row input:focus,
+.form-row select:focus {
     border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
 button {
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -83,8 +92,9 @@ button:hover {
 
 .grid-container th, .grid-container td {
     border: 1px solid #dee2e6;
-    padding: 12px;
+    padding: 10px;
     text-align: left;
+    font-size: 14px;
 }
 
 .grid-container th {
@@ -119,6 +129,7 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
 .actions button:hover {
