@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .forms import EmployeeForm
+from .forms import EmployeeForm, ProductForm
 from django.shortcuts import render, redirect
 
 
@@ -25,4 +25,14 @@ def updateNhanSu(request):
 
 def deleteNhanSu(request):
   pass
+
+def loadProduct(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Product')
+    else:
+        form = ProductForm()
+    return render(request, 'Product.html', {'form': form})
 

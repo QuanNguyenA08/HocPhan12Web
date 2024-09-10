@@ -1,5 +1,5 @@
 from django import forms
-from .models import Employee
+from .models import Employee,Product
 
 class EmployeeForm(forms.ModelForm):
     class Meta:
@@ -48,3 +48,13 @@ class EmployeeForm(forms.ModelForm):
         if salary <= 0:
             raise forms.ValidationError('Salary must be a positive number.')
         return salary
+    
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'  # Include all fields from the model
+        widgets = {
+            'value': forms.NumberInput(attrs={'step': '0.01'}),
+            'status': forms.Select(choices=Product.STATUS_CHOICES),
+        }

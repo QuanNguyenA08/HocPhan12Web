@@ -5,4 +5,6 @@ from member import views
 
 urlpatterns = [
     path('nhanSu', views.loadNhanSu, name='nhanSu'),
+
+    path('product', views.loadProduct, name='nhanSu'),
 ]
