@@ -17,6 +17,7 @@ let selectedRow = null;
 const employees = [];
 
 function addEmployee() {
+    const employeeId = document.getElementById('employeeId').value;
     const name = document.getElementById('name').value;
     const dob = document.getElementById('dob').value;
     const phone = document.getElementById('phone').value;
@@ -26,14 +27,15 @@ function addEmployee() {
     const position = document.getElementById('position').value;
     const hireDate = document.getElementById('hireDate').value;
     const salary = document.getElementById('salary').value;
+    const status = document.getElementById('status').value;
     const notes = document.getElementById('notes').value;
 
-    if (!name || !dob || !phone || !address || !email || !department || !position || !hireDate || !salary) {
+    if (!employeeId || !name || !dob || !phone || !address || !email || !department || !position || !hireDate || !salary || !status) {
         alert('All fields are required except notes.');
         return;
     }
 
-    const employee = { name, dob, phone, address, email, department, position, hireDate, salary, notes };
+    const employee = { employeeId, name, dob, phone, address, email, department, position, hireDate, salary, status, notes };
     employees.push(employee);
     displayEmployees();
     employeeForm.reset();
@@ -46,6 +48,7 @@ function displayEmployees() {
         row.dataset.index = index;
         
         row.innerHTML = `
+            <td>${employee.employeeId}</td>
             <td>${employee.name}</td>
             <td>${employee.dob}</td>
             <td>${employee.phone}</td>
@@ -55,6 +58,7 @@ function displayEmployees() {
             <td>${employee.position}</td>
             <td>${employee.hireDate}</td>
             <td>${employee.salary}</td>
+            <td>${employee.status}</td>
             <td>${employee.notes}</td>
         `;
 
@@ -72,6 +76,7 @@ function selectRow(row) {
 
     const index = row.dataset.index;
     const employee = employees[index];
+    document.getElementById('employeeId').value = employee.employeeId;
     document.getElementById('name').value = employee.name;
     document.getElementById('dob').value = employee.dob;
     document.getElementById('phone').value = employee.phone;
@@ -81,6 +86,7 @@ function selectRow(row) {
     document.getElementById('position').value = employee.position;
     document.getElementById('hireDate').value = employee.hireDate;
     document.getElementById('salary').value = employee.salary;
+    document.getElementById('status').value = employee.status;
     document.getElementById('notes').value = employee.notes;
 }
 
@@ -102,6 +108,7 @@ editBtn.onclick = () => {
         return;
     }
     const index = selectedRow.dataset.index;
+    const employeeId = document.getElementById('employeeId').value;
     const name = document.getElementById('name').value;
     const dob = document.getElementById('dob').value;
     const phone = document.getElementById('phone').value;
@@ -111,14 +118,15 @@ editBtn.onclick = () => {
     const position = document.getElementById('position').value;
     const hireDate = document.getElementById('hireDate').value;
     const salary = document.getElementById('salary').value;
+    const status = document.getElementById('status').value;
     const notes = document.getElementById('notes').value;
 
-    if (!name || !dob || !phone || !address || !email || !department || !position || !hireDate || !salary) {
+    if (!employeeId || !name || !dob || !phone || !address || !email || !department || !position || !hireDate || !salary || !status) {
         alert('All fields are required except notes.');
         return;
     }
 
-    employees[index] = { name, dob, phone, address, email, department, position, hireDate, salary, notes };
+    employees[index] = { employeeId, name, dob, phone, address, email, department, position, hireDate, salary, status, notes };
     selectedRow = null;
     displayEmployees();
     employeeForm.reset();
