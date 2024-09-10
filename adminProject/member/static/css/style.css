@@ -1,5 +1,131 @@
-/* myapp/static/css/style.css */
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e9ecef;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+
+.form-container, .grid-container {
+    margin-bottom: 20px;
+}
+
+.form-container h2, .grid-container h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Reduced margin to bring elements closer */
+}
+
+.form-row label {
+    width: 48%;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 5px; /* Reduced margin to bring label closer to input */
+}
+
+.form-row input {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-row input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.grid-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.grid-container th, .grid-container td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+.grid-container th {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-weight: bold;
+}
+
+.grid-container td {
+    background-color: #fff;
+}
+
+.grid-container tr:nth-child(even) {
+    background-color: #f1f3f5;
+}
+
+.grid-container tr:hover {
+    background-color: #e2e6ea;
+}
+
+.actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.actions button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.actions button:hover {
+    background-color: #218838;
+}
+
+.selected {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
 }
