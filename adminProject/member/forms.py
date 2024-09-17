@@ -12,13 +12,13 @@ class EmployeeForm(forms.ModelForm):
         widgets = {
             'employee_id': forms.TextInput(attrs={'class': 'form-input'}),
             'name': forms.TextInput(attrs={'class': 'form-input'}),
-            'dob': forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}),
+            'dob': forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}, format='%Y-%m-%d'),
             'phone': forms.TextInput(attrs={'class': 'form-input'}),
             'address': forms.TextInput(attrs={'class': 'form-input'}),
             'email': forms.EmailInput(attrs={'class': 'form-input'}),
             'department': forms.TextInput(attrs={'class': 'form-input'}),
             'position': forms.TextInput(attrs={'class': 'form-input'}),
-            'hire_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}),
+            'hire_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-input'}, format='%Y-%m-%d'),
             'salary': forms.NumberInput(attrs={'step': '0.01', 'class': 'form-input'}),
             'status': forms.Select(
                 choices=[
@@ -30,6 +30,7 @@ class EmployeeForm(forms.ModelForm):
             ),
             'notes': forms.Textarea(attrs={'rows': 3, 'cols': 40, 'class': 'form-input'}),
         }
+
         
     def clean_employee_id(self):
         employee_id = self.cleaned_data.get('employee_id')
