@@ -14,63 +14,81 @@
         <h1>Employee Management</h1>
         
         <div class="form-container">
-
-
-            
             <h2>Employee Form</h2>
             <form method="post" id="employee-form">
                 {% csrf_token %}
-                <div class="form-row">
-                    <label for="id_employee_id">Employee ID:</label>
-                    {{ form.employee_id }}
+                
+                <!-- Group two rows together in one line -->
+                <div class="form-row-group">
+                    <div class="form-row">
+                        <label for="id_employee_id">Employee ID:</label>
+                        {{ form.employee_id }}
+                    </div>
+                    <div class="form-row">
+                        <label for="id_name">Name:</label>
+                        {{ form.name }}
+                    </div>
                 </div>
-                <div class="form-row">
-                    <label for="id_name">Name:</label>
-                    {{ form.name }}
+        
+                <div class="form-row-group">
+                    <div class="form-row">
+                        <label for="id_dob">Date of Birth:</label>
+                        {{ form.dob }}
+                    </div>
+                    <div class="form-row">
+                        <label for="id_phone">Phone:</label>
+                        {{ form.phone }}
+                    </div>
                 </div>
-                <div class="form-row">
-                    <label for="id_dob">Date of Birth:</label>
-                    {{ form.dob }}
+        
+                <div class="form-row-group">
+                    <div class="form-row">
+                        <label for="id_address">Address:</label>
+                        {{ form.address }}
+                    </div>
+                    <div class="form-row">
+                        <label for="id_email">Email:</label>
+                        {{ form.email }}
+                    </div>
                 </div>
-                <div class="form-row">
-                    <label for="id_phone">Phone:</label>
-                    {{ form.phone }}
+        
+                <div class="form-row-group">
+                    <div class="form-row">
+                        <label for="id_department">Department:</label>
+                        {{ form.department }}
+                    </div>
+                    <div class="form-row">
+                        <label for="id_position">Position:</label>
+                        {{ form.position }}
+                    </div>
                 </div>
-                <div class="form-row">
-                    <label for="id_address">Address:</label>
-                    {{ form.address }}
+        
+                <div class="form-row-group">
+                    <div class="form-row">
+                        <label for="id_hire_date">Hire Date:</label>
+                        {{ form.hire_date }}
+                    </div>
+                    <div class="form-row">
+                        <label for="id_salary">Salary:</label>
+                        {{ form.salary }}
+                    </div>
                 </div>
-                <div class="form-row">
-                    <label for="id_email">Email:</label>
-                    {{ form.email }}
+        
+                <div class="form-row-group">
+                    <div class="form-row">
+                        <label for="id_status">Status:</label>
+                        {{ form.status }}
+                    </div>
+                    <div class="form-row">
+                        <label for="id_notes">Notes:</label>
+                        {{ form.notes }}
+                    </div>
                 </div>
-                <div class="form-row">
-                    <label for="id_department">Department:</label>
-                    {{ form.department }}
-                </div>
-                <div class="form-row">
-                    <label for="id_position">Position:</label>
-                    {{ form.position }}
-                </div>
-                <div class="form-row">
-                    <label for="id_hire_date">Hire Date:</label>
-                    {{ form.hire_date }}
-                </div>
-                <div class="form-row">
-                    <label for="id_salary">Salary:</label>
-                    {{ form.salary }}
-                </div>
-                <div class="form-row">
-                    <label for="id_status">Status:</label>
-                    {{ form.status }}
-                </div>
-                <div class="form-row">
-                    <label for="id_notes">Notes:</label>
-                    {{ form.notes }}
-                </div>
+        
                 <button type="submit">Add Employee</button>
             </form>
         </div>
+        
 
         <div class="grid-container">
             <h2>Employees</h2>

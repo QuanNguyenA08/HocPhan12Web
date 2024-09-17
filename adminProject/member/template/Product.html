@@ -9,11 +9,38 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Create Product</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
+    <div class="container">
+        <h1>Create Product</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-row-group">
+                <div class="form-row">
+                    <label for="{{ form.product_id.id_for_label }}">Product ID</label>
+                    {{ form.product_id }}
+                </div>
+                <div class="form-row">
+                    <label for="{{ form.value.id_for_label }}">Value</label>
+                    {{ form.value }}
+                </div>
+            </div>
+            <div class="form-row-group">
+                <div class="form-row">
+                    <label for="{{ form.type.id_for_label }}">Type</label>
+                    {{ form.type }}
+                </div>
+                <div class="form-row">
+                    <label for="{{ form.amount.id_for_label }}">Amount</label>
+                    {{ form.amount }}
+                </div>
+            </div>
+            <div class="form-row-group">
+                <div class="form-row">
+                    <label for="{{ form.status.id_for_label }}">Status</label>
+                    {{ form.status }}
+                </div>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>
