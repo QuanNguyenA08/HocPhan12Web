@@ -85,14 +85,16 @@
                     </div>
                 </div>
         
-                <button type="submit">Add Employee</button>
+                <button type="submit" id="add-button">Add Employee</button>
+                <button type="button" id="update-button">Update Employee</button>
+                <button type="button" id="delete-button">Delete Employee</button>
             </form>
         </div>
         
 
         <div class="grid-container">
-            <h2>Employees</h2>
-            <table id="employee-table">
+            <h2>Employee List</h2>
+            <table>
                 <thead>
                     <tr>
                         <th>Employee ID</th>
@@ -109,14 +111,29 @@
                         <th>Notes</th>
                     </tr>
                 </thead>
-                <tbody id="employee-body">
+                <tbody>
+                    {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.employee_id }}</td>
+                        <td>{{ employee.name }}</td>
+                        <td>{{ employee.dob }}</td>
+                        <td>{{ employee.phone }}</td>
+                        <td>{{ employee.address }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.department }}</td>
+                        <td>{{ employee.position }}</td>
+                        <td>{{ employee.hire_date }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>{{ employee.status }}</td>
+                        <td>{{ employee.notes }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="12">No employees found.</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-        </div>
-
-        <div class="actions">
-            <button id="delete-btn">Delete</button>
-            <button id="edit-btn">Edit</button>
         </div>
     </div>
     <script src="{% static 'js/script.js' %}"></script>
