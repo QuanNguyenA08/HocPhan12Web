@@ -7,7 +7,7 @@ class EmployeeForm(forms.ModelForm):
         fields = [
             'employee_id', 'name', 'dob', 'phone', 'address',
             'email', 'department', 'position', 'hire_date', 
-            'salary', 'status', 'notes'
+            'salary', 'status', 'notes', 
         ]
         widgets = {
             'employee_id': forms.TextInput(attrs={'class': 'form-input'}),
@@ -53,7 +53,7 @@ class EmployeeForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'  # Include all fields from the model
+        fields = ['product_id', 'value', 'type', 'amount', 'status']  # Include all fields from the model
         widgets = {
             'value': forms.NumberInput(attrs={'step': '0.01'}),
             'status': forms.Select(choices=Product.STATUS_CHOICES),
