@@ -63,3 +63,28 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} of {self.product.product_id} in cart"
+    
+class HopDong(models.Model):
+    CONTRACT_STATUS_CHOICES = [
+        ('active', 'Active'),
+        ('terminated', 'Terminated'),
+        ('pending', 'Pending'),
+    ]
+
+    CONTRACT_TYPE_CHOICES = [
+        ('full_time', 'Full-Time'),
+        ('part_time', 'Part-Time'),
+        ('temporary', 'Temporary'),
+        ('freelance', 'Freelance'),
+    ]
+
+    contract_id = models.CharField(max_length=20, unique=True)  # ID hợp đồng (unique)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)  # ID nhân viên, liên kết với Employee
+    start_date = models.DateField()  # Ngày ký hợp đồng
+    end_date = models.DateField()  # Ngày kết thúc hợp đồng
+    terms = models.TextField()  # Điều khoản hợp đồng
+    status = models.CharField(max_length=20, choices=CONTRACT_STATUS_CHOICES, default='pending')  # Tình trạng hợp đồng
+    contract_type = models.CharField(max_length=20, choices=CONTRACT_TYPE_CHOICES, default='full_time')  # Loại hợp đồng
+
+    def __str__(self):
+                return f"Contract {self.contract_id} ({self.employee.name})"

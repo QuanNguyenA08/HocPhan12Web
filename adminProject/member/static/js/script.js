@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const employeeTableBody = document.querySelector('table tbody');
+    const mainTableBody = document.querySelector('table tbody');
     const updateButton = document.getElementById('update-button');
-    const employeeForm = document.getElementById('employee-form'); // Lấy tham chiếu đến biểu mẫu
+    const deleteButton = document.getElementById('delete-button');
+    const employeeForm = document.getElementById('main-form'); // Lấy tham chiếu đến biểu mẫu
 
     let selectedRow = null;
-    let selectedEmployeeId = null;
+    let selectedMainId = null;
 
     // Function to handle row selection
     function selectRow(row) {
@@ -15,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedRow.classList.add('selected');
         
         const cells = row.getElementsByTagName('td');
-        selectedEmployeeId = cells[0].textContent; // Giả sử ID ở cột đầu tiên
-        console.log(selectedEmployeeId);
+        selectedMainId = cells[0].textContent; // Giả sử ID ở cột đầu tiên
+        console.log(selectedMainId);
 
         // Populate form fields with selected employee data
         document.getElementById('id_employee_id').value = cells[0].textContent || '';
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add click event listener to each row
-    employeeTableBody.addEventListener('click', (event) => {
+    mainTableBody.addEventListener('click', (event) => {
         const row = event.target.closest('tr');
         if (row) {
             selectRow(row);
@@ -69,13 +70,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle update button click
     updateButton.addEventListener('click', function() {
-        console.log(selectedEmployeeId);
         console.log('updateButton');
-        if (selectedEmployeeId) {
-            employeeForm.action = `/employee/update/${selectedEmployeeId}/`; // URL để cập nhật
+        if (selectedMainId) {
+            employeeForm.action = `/employee/update/${selectedMainId}/`; // URL để cập nhật
             employeeForm.submit();
         } else {
             alert('Please select an employee to update.');
         }
     });
+
+    // delete button
+    deleteButton.addEventListener('click', function() {
+        console.log(selectedMainId);
+        if (selectedMainId) {
+            employeeForm.action = `/employee/delete/${selectedMainId}/`; // URL để cập nhật
+            employeeForm.submit();
+        } else {
+            alert('Please select an employee to delete.');
+        }
+    });
 });
+
+
+    

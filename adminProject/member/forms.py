@@ -56,6 +56,9 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ['product_id', 'value', 'type', 'amount', 'status']  # Include all fields from the model
         widgets = {
-            'value': forms.NumberInput(attrs={'step': '0.01'}),
+            'product_id': forms.TextInput(attrs={'class': 'form-input'}),
+            'value': forms.NumberInput(attrs={'step': '1','class': 'form-input'}),
+            'type': forms.TextInput(attrs={'class': 'form-input'}),
+            'amount': forms.TextInput(attrs={'class': 'form-input'}),
             'status': forms.Select(choices=Product.STATUS_CHOICES),
         }
