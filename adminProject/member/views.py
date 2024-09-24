@@ -21,18 +21,18 @@ def loadNhanSu(request):
     return render(request, 'nhanSu.html', {'form': form, 'employees': employees})
 
 
-def updateNhanSu(request):
+def updateNhanSu(request, employee_id):
+    print('Update NhanSu')
+    employee = get_object_or_404(Employee, employee_id=employee_id)  # Kiểm tra nhân viên có tồn tại không
     if request.method == 'POST':
-        employee_id = request.POST.get('employee_id')
-        employee = get_object_or_404(Employee, employee_id=employee_id)
-
         form = EmployeeForm(request.POST, instance=employee)
         if form.is_valid():
             form.save()
-            return redirect('nhanSu')  # Redirect after successful update
-        else:
-            print('error',form.errors)  # Print form errors to debug
-    return redirect('nhanSu')
+            return redirect('nhanSu')  # Redirect về trang danh sách nhân viên
+    else:
+        form = EmployeeForm(instance=employee)
+    
+    return render(request, 'update_employee.html', {'form': form})
 
 
 def deleteNhanSu(request):

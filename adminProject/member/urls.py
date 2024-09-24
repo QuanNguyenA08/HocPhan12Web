@@ -6,6 +6,6 @@ from member import views
 urlpatterns = [
     path('nhanSu', views.loadNhanSu, name='nhanSu'),
     path('product', views.loadProduct, name='product'),
-    path('update-employee/', views.updateNhanSu, name='update_employee'),
+    path('employee/update/<str:employee_id>/', views.updateNhanSu, name='update_employee'),
     #/update-employee/TE7091
 ]
